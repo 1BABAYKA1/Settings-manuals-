@@ -1,0 +1,38 @@
+Как настроить SSH на Cisco
+Заходим в привилегированный режим;
+cisco>enable
+Устанавливаем дату и время (нужны для генерации ключа);
+cisco#clock set 20:24:09 24 Oct 2021
+Входим в режим конфигурирования;
+cisco#conf t
+Указываем домен и имя устройства (для генерации ключа);
+cisco(config)#ip domain name domain.local
+cisco(config)#hostname cisco-ssh
+Генерируем ключ для SSH;
+cisco-ssh(config)#crypto key generate rsa
+Храним пароли в зашифрованном виде;
+cisco-ssh(config)#service password-encryption
+Создаем пользователя admin с паролем Pa$$w0rd и максимальными привилегиями;
+cisco-ssh(config)#username admin privilege 15 secret Pa$$w0rd
+Задаем пароль для привилегированного режима;
+cisco-ssh(config)#enable secret Pa$$w0rd
+Активируем протокол ААА;
+cisco-ssh(config)#aaa new-model
+Разрешаем компьютерам внутренней сети заходить на Cisco по SSH;
+cisco-ssh(config)#access-list 23 permit 192.168.0.0 0.0.0.255
+Входим в режим конфигурирования терминальный линий;
+cisco-ssh(config)#line vty 0 4
+Запрещаем все, кроме SSH;
+cisco-ssh(config-line)#transport input ssh
+Активируем автоматическое поднятие строки после ответа системы на проделанные изменения;
+cisco-ssh(config-line)#logging synchronous
+Позволяем входить сразу в привилигированный режим;
+cisco-ssh(config-line)#privilege level 15
+Настраиваем автоматическое закрытие SSH сессии через 60 минут;
+cisco-ssh(config-line)#exec-timeout 60 0
+Привязываем группу доступа, созданную на шаге 10, к терминальной линии;
+cisco-ssh(config-line)#access-class 23 in
+Выходим из настроек и сохраняем конфигурацию.
+cisco(config-line)exit
+cisco(config)exit
+cisco#copy run start
