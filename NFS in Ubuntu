@@ -103,3 +103,6 @@ sudo ufw allow 2049
 Чтобы отключить эту файловую систему достаточно использовать стандартный umount:
 
  sudo umount /mnt/
+ 
+ 
+ https://ubuntos.ru/kak-nastroit-server-i-klient-nfs-v-debian-10
