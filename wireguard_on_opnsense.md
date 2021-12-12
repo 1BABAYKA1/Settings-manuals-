@@ -1,4 +1,4 @@
-<h4>WireGuard Road Warrior Setup<h4>
+<h5>WireGuard Road Warrior Setup<h5>
 Introduction
 WireGuard is a simple, fast VPN protocol using modern cryptography. It aims to be faster and less complex than IPsec whilst also being a considerably more performant alternative to OpenVPN. Initially released for the Linux kernel, it is now cross-platform and widely deployable.
 
