@@ -22,3 +22,5 @@ nameserver 192.168.1.1
 ```
 nano /etc/apt/sources.list
 ```
+Ставишь решетку перед строкой которая начинается с cdrom
+
