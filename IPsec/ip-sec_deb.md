@@ -1,6 +1,6 @@
 create file for script
 ```
-touch l2tpclient.sh
+touch /etc/vpn.sh
 ```
 in txt do some izmeneniya
 ```
@@ -12,9 +12,13 @@ i voobshe pomenyat chto nado
 ```
 Make the file executable:
 ```
-chmod +x l2tpclient.sh
+chmod +x /etc/vpn.sh
+```
+copy txt to sh
+```
+cp ~/script.txt /etc/vpn.sh
 ```
 Run the script with Superuser privileges:
 ```
-sudo ./l2tpclient.sh
+sudo ./etc/vpn.sh
 ```
