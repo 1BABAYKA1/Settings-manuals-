@@ -19,8 +19,8 @@ conn VPN1
     keyexchange=ikev1
     left=%defaultroute
     auto=add
-    ike="aes128-sha1-modp2048,3des-sha1-modp1536"
-    esp="aes128-sha1,3des-sha1"
+    ike="aes256-sha2-modp2048,3des-sha2-modp1536"
+    esp="aes256-sha2,3des-sha2"
     authby=secret
     type=transport
     leftprotoport=17/1701
