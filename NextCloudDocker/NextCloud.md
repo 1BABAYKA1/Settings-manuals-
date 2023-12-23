@@ -1,7 +1,6 @@
 ## NextCloud
 
 ### В контейнерах docker
-1. [Установим docker и docker-compose](../../DevOps/Docker/README.md)
 2. Создадим директорию /etc/nextcloud
 ```
 mkdir /etc/nextcloud
